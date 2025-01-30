@@ -60,7 +60,7 @@ count = 1
 
 	[[module.entry]]
 	name = "DWMIX"
-	uuid = "1234F1F1-1234-1A34-8C08-884BE5D14FAA"
+	uuid = "F1F13412-3412-341A-8C08-884BE5D14FAA"
 	affinity_mask = "0x1"
 	instance_count = "15"
 	domain_types = "0"

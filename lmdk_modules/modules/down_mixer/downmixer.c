@@ -506,12 +506,15 @@ static void *entry_point(void *mod_cfg, void *parent_ppl, void **mod_ptr)
 	return &down_mixer_interface;
 }
 
-__attribute__((section(".module")))
-const struct sof_man_module_manifest downmix_manifest = {
+#define DECLARE_LOADABLE_MODULE_MANIFEST(name)	\
+	__attribute__((section(".module")))	\
+	const struct sof_man_module_manifest name
+
+DECLARE_LOADABLE_MODULE_MANIFEST(downmix_manifest) = {
 	.module = {
 		.name = "DOWNMIX",
-		.uuid = {0x12, 0x34, 0xf1, 0xf1, 0x12, 0x34, 0x1a, 0x34,
-			 0x8c, 0x08, 0x88, 0x4b, 0xe5, 0xd1, 0x4f, 0xaa},
+		.uuid = { 0xF1F13412, 0x3412, 0x341A, 0x8C, 0x08,
+			  0x88, 0x4B, 0xE5, 0xD1, 0x4F, 0xAA },
 		.entry_point = (uint32_t)entry_point,
 		.type = { .load_type = SOF_MAN_MOD_TYPE_MODULE,
 		.domain_ll = 1 },
